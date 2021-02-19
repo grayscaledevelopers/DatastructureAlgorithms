@@ -1,5 +1,7 @@
 package com.example.linkedList;
 
+import com.example.linkedList.LinkedList.Node;
+
 public class LinkedList {
 	Node head;
 
@@ -45,6 +47,28 @@ public class LinkedList {
 		
 		return list;
 	}
+	
+	
+	// Insertion in Tail 1 -> 2 -> 3 -> 4 -> null
+		public LinkedList insertionAtTail(LinkedList list, Node new_Node) {
+		// create a node,insert a data into the node and next to null
+//			Node new_Node = new Node(data);
+//			new_Node.next = null;
+		
+			// if head is null point head to new node
+			if(head == null) {
+				list.head = new_Node;
+			}else {
+				Node last = list.head;
+				while(last.next!=null) {
+					last = last.next;//4
+				}
+				
+				last.next = new_Node; //1->2->3->4->null
+			}
+			
+			return list;
+		}
 	
 	public LinkedList deleteNode(LinkedList list, int key) {
 		
@@ -113,7 +137,20 @@ public class LinkedList {
 			System.out.print(curr_Node.data+"->");
 			curr_Node = curr_Node.next;
 		}
-		System.out.print("null");
+//		System.out.print("null");
+		System.out.println();
+
+	}
+	
+	
+	public void print(LinkedList list) {
+		System.out.println();
+
+		Node curr_Node = list.head;
+		while (curr_Node != null) {
+			System.out.print(curr_Node.data+" ");
+			curr_Node = curr_Node.next;
+		}
 		System.out.println();
 
 	}
@@ -139,6 +176,19 @@ public class LinkedList {
 //		System.out.println("After Deleting the node================");
 //		list.printElements(list);
 
+	}
+	
+	public LinkedList insertion(LinkedList list) {
+		// 1->2->3->4->2
+		Node loop = new Node(2);
+		list.insertionAtTail(list, new Node(1));
+		list.insertionAtTail(list, loop);
+		list.insertionAtTail(list, new Node(3));
+		list.insertionAtTail(list, new Node(4));
+		list.print(list);
+		list.insertionAtTail(list, new Node(5));
+		
+		return list;
 	}
 
 
