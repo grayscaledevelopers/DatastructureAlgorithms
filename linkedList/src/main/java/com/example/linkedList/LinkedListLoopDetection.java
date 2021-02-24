@@ -26,7 +26,7 @@ public class LinkedListLoopDetection {
 			}
 		}
 		
-		// Incase of normal Linked List
+		// Incase of normal Linked List/not having loop
 		if(fast==null || fast.next==null) {
 			return Optional.empty();
 		}
