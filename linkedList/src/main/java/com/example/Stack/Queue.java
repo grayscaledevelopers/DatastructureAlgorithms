@@ -1,4 +1,4 @@
-package queue;
+package com.example.Stack;
 
 import java.util.NoSuchElementException;
 
